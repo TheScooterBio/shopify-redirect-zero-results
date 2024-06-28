@@ -1,0 +1,61 @@
+{% comment %}
+  Include this script in your search results template to handle redirects based on a CSV file.
+{% endcomment %}
+
+{% if search.results_count == 0 %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var csvFileUrl = "FULL-URL-HERE";
+
+  function parseCSV(text) {
+    const lines = text.split('\n');
+    const result = [];
+    const headers = lines[0].split(',');
+
+    for (let i = 1; i < lines.length; i++) {
+      const obj = {};
+      const currentline = lines[i].split(',');
+
+      for (let j = 0; j < headers.length; j++) {
+        obj[headers[j].trim()] = currentline[j].trim();
+      }
+
+      result.push(obj);
+    }
+    return result;
+  }
+
+  function handleRedirects() {
+    // Get the search query from the URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var searchTerm = urlParams.get('q').trim().toLowerCase();
+    
+    if (!searchTerm) {
+      return;
+    }
+
+    // Fetch and parse the CSV file
+    fetch(csvFileUrl)
+      .then(response => response.text())
+      .then(text => {
+        const redirects = parseCSV(text);
+
+        // Find the matching redirect URL for the search term
+        let redirectUrl = null;
+        redirects.forEach(function(row) {
+          if (row.Term.toLowerCase() === searchTerm) {
+            redirectUrl = row.URL;
+          }
+        });
+
+        // Redirect if a match is found
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
+        }
+      });
+  }
+
+  handleRedirects();
+});
+</script>
+{% endif %}
