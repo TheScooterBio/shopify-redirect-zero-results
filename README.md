@@ -1,5 +1,4 @@
-# shopify-redirect-zero-results
-
+# Redirect Search Result Pages with Zero Results
 When visitors search on your site and get zero results, you sometimes want to redirect to a more relevant page. 
 
 This tutorial code requires a little bit of copy and paste in your Shopify backend to make it work but should take about 5 minutes no more.
