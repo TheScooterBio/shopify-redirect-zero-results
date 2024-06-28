@@ -6,10 +6,10 @@ This tutorial code requires a little bit of copy and paste in your Shopify backe
 # Steps
 
 1. Login to Shopify Backend
-2. Create your search terms redirects CSV via this template. (one row for terms and one row for full url to redirect to)
+2. Create your search terms redirects CSV via this https://github.com/onescales/shopify-redirect-zero-results/blob/main/Shopify-Search-Redirects.csv (one row for terms and one row for full url to redirect to)
 3. Upload to files via Content
-4. Copy the code template from https://github.com/onescales/shopify-add-to-cart/blob/main/add-to-cart.liquid and save.
-5. Customize your theme and edit your search liquid page and paste the code. *Make sure to change row 8 with the url of your file from above step 3.
+4. Copy the code template from https://github.com/onescales/shopify-add-to-cart/blob/main/add-to-cart.liquid
+5. 5. Customize your theme. Edit your search liquid page and at top of page, paste the code. *Make sure to change row 8 "FULL-URL-HERE" with the full url of your file from above step 3.
 6. Start Using It. Enjoy!
 
 # Additional Notes
