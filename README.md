@@ -1,0 +1,1 @@
+# shopify-redirect-zero-results
